@@ -3,18 +3,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   svgObject.addEventListener("load", () => {
     const svgDoc = svgObject.contentDocument;
+
     const namgu = svgDoc.getElementById("namgu");
-    const infoBox = document.getElementById("info-box");
+    const haeundaegu = svgDoc.getElementById("haeundaegu");
+
+    const infoNamgu = document.getElementById("info-namgu");
+    const infoHaeundae = document.getElementById("info-haeundaegu");
 
     if (namgu) {
       namgu.addEventListener("mouseenter", () => {
-        namgu.setAttribute("fill", "#FFD700"); // 노란색
-        infoBox.style.display = "block";
+        namgu.setAttribute("fill", "#FFA500"); // 주황색
+        infoNamgu.style.display = "block";
+        infoHaeundae.style.display = "none";
       });
 
       namgu.addEventListener("mouseleave", () => {
         namgu.setAttribute("fill", "#FFFFFF");
-        infoBox.style.display = "none";
+        infoNamgu.style.display = "none";
+      });
+    }
+
+    if (haeundaegu) {
+      haeundaegu.addEventListener("mouseenter", () => {
+        haeundaegu.setAttribute("fill", "#87CEFA"); // 하늘색
+        infoHaeundae.style.display = "block";
+        infoNamgu.style.display = "none";
+      });
+
+      haeundaegu.addEventListener("mouseleave", () => {
+        haeundaegu.setAttribute("fill", "#FFFFFF");
+        infoHaeundae.style.display = "none";
       });
     }
   });
